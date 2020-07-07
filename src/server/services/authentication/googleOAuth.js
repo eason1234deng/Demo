@@ -7,7 +7,7 @@ module.exports = (User, passport) => {
         {
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: constants.GOOGLE_OAUTH_CB_URL,
+            callbackURL: process.env.GOOGLE_OAUTH_CB_URL,
             scope: constants.GOOGLE_OAUTH_SCOPE,
             proxy: true
         },

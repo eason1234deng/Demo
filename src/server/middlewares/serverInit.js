@@ -7,8 +7,6 @@ require("mongoose").connect(
     { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
-const constants = require('../constants/constants');
-
 // Apply all middlewares to server
 module.exports = (app, User, passport) => {
 
@@ -26,7 +24,7 @@ module.exports = (app, User, passport) => {
 
     // Cross origin browser requests
     app.use(cors({
-        origin: constants.CLIENT_HOME_PAGE, // allow to server to accept request from different origin
+        origin: process.env.CLIENT_HOME_PAGE, // allow to server to accept request from different origin
         methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
         credentials: true // allow session cookie from browser to pass through
     }));

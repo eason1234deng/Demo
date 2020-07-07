@@ -1,6 +1,5 @@
 const sendEmail = require('../services/emailing/email');
 const { requireLogin, requireUnConfirm } = require('../utils/helpers');
-const constants = require('../constants/constants');
 
 module.exports = (app, User) => {
     app.get('/confirmation/send', requireLogin, requireUnConfirm, (req, res) => {
@@ -9,7 +8,7 @@ module.exports = (app, User) => {
             sender: process.env.SERVER_EMAIL_ADDRESS,
             recipient: req.user.email,
             name: req.user.name,
-            confirmAccURL: `${constants.SERVER_ROOT}/confirmation/${req.user.id}`
+            confirmAccURL: `${process.env.SERVER_ROOT}/confirmation/${req.user.id}`
         }
         sendEmail(data, res);
     });
@@ -22,6 +21,6 @@ module.exports = (app, User) => {
         }
         user.confirmed = true;
         await user.save();
-        res.redirect(constants.CLIENT_HOME_PAGE);
+        res.redirect(process.env.CLIENT_HOME_PAGE);
     });
 }

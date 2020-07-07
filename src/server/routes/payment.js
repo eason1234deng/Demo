@@ -4,7 +4,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 module.exports = (app, User) => {
     app.get('/config/stripe', (_, res) => { // hard-coding base price and currency for now
         res.send({
-            publicKey: constants.STRIPE_PUBLISHABLE_KEY,
+            publicKey: process.env.STRIPE_PUBLISHABLE_KEY,
             basePrice: constants.BASE_PRICE, // Keep the amount on the server to prevent customers from manipulating on client
             currency: constants.CURRENCY
         });
@@ -38,9 +38,9 @@ module.exports = (app, User) => {
                         amount: constants.BASE_PRICE,
                     },
                 ],
-                success_url: `${constants.SERVER_ROOT}/payment_sucess/?session_id={CHECKOUT_SESSION_ID}`,
-                cancel_url: `${constants.SERVER_ROOT}/payment_fail/?session_id={CHECKOUT_SESSION_ID}`,
-                customer_email: process.env.CUSTOMER_EMAIL
+                success_url: `${process.env.SERVER_ROOT}/payment_sucess/?session_id={CHECKOUT_SESSION_ID}`,
+                cancel_url: `${process.env.SERVER_ROOT}/payment_fail/?session_id={CHECKOUT_SESSION_ID}`,
+                customer_email: process.env.CUSTOMER_EMAIL_ADDRESS
             });
             res.send({
                 sessionId: session.id
@@ -56,7 +56,7 @@ module.exports = (app, User) => {
         } catch (err) {
             console.log(err);
         } finally {
-            res.redirect(constants.CLIENT_HOME_PAGE);
+            res.redirect(process.env.CLIENT_HOME_PAGE);
         }
     });
 
@@ -71,13 +71,13 @@ module.exports = (app, User) => {
         } catch (err) {
             console.log(err);
         } finally {
-            res.redirect(constants.CLIENT_HOME_PAGE);
+            res.redirect(process.env.CLIENT_HOME_PAGE);
         }
     });
 
     // Stripe will send us events actively
     app.post('/webhook', async (req, res) => {
-        const stripeWebHookKey = constants.STRIPE_WEBHOOK_KEY;
+        const stripeWebHookKey = process.env.STRIPE_WEBHOOK_KEY;
         let eventType;
         let data;
         if (stripeWebHookKey) { // data is signed by stripe.com
@@ -110,7 +110,7 @@ module.exports = (app, User) => {
             } catch (err) {
                 console.log(err);
             } finally {
-                res.redirect(constants.CLIENT_HOME_PAGE);
+                res.redirect(process.env.CLIENT_HOME_PAGE);
                 return;
             }
         }

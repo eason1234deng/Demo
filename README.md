@@ -1,10 +1,10 @@
-# ztm-final-project-api - v2
+# demo
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,10 +14,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 1) Clone this repo
 2) Go to the folder
 3) Run `npm install`
-4) Run `npm nodemonStart`
-5) You must add your own API key in the `controllers/image.js` file to connect to Clarifai API.
+4) Run `npm run dev`
+5) You must set your own environment variables for keys documented in `/.env.example`  and `/src/client/.env.local` to run the app.
 
-You can grab Clarifai API key [here](https://www.clarifai.com/)
+You can grab:
+  1) Clarifai API key [here](https://www.clarifai.com/)
+  2) MongoURI [here](https://www.mongodb.com/)
+  3) Google OAuth Credentials [here](https://console.developers.google.com/apis/credentials)
+  4) Github OAuth Credentials [here](https://github.com/settings/developers)
+  5) Sendgrid API key [here](https://sendgrid.com/)
+  6) Stripe API keys [here](https://stripe.com/)
 
-** Make sure you use postgreSQL instead of mySQL for this code base.
-
+**You can set up an email template in sendgrid [here](https://sendgrid.com/)**

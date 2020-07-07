@@ -7,7 +7,7 @@ module.exports = (User, passport) => {
         {
             clientID: process.env.GITHUB_CLIENT_ID,
             clientSecret: process.env.GITHUB_CLIENT_SECRET,
-            callbackURL: constants.GITHUB_OAUTH_CB_URL,
+            callbackURL: process.env.GITHUB_OAUTH_CB_URL,
             scope: constants.GITHUB_OAUTH_SCOPE,
             proxy: true
         },

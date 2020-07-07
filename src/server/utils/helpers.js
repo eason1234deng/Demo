@@ -66,7 +66,7 @@ const validateRegistration = (User, Login) => async (req, email, password, done)
             return;
         }
 
-        const hash = await bcrypt.hash(password, constants.SALT_ROUND);
+        const hash = await bcrypt.hash(password, parseInt(process.env.SALT_ROUND));
         if (!hash) {
             done(null, false, { message: 'Unable to register' })
             return;
