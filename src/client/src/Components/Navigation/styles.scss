@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: flex-end;
+    > p {
+        z-index: 1;
+    }
+
+    .oauthButton {
+        z-index: 1;
+        display: block;
+        &:hover {
+            cursor: pointer;
+        }
+        &:focus {
+            outline: none;
+        }
+        img {
+            width: 40px;
+            height: 40px;
+
+            &:focus, &:hover {
+                filter: contrast(1.8);
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.wrapper {
+    margin-top: 1.5rem;
+    .parallax-effect-img {
+        transform-style: preserve-3d;
+        transform: perspective(1000px);
+        background-image: url('https://wallpapercart.com/wp-content/uploads/2020/04/Fantasy-Wolf-Fantasy-Cool-Animals-HD-Wallpaper-Background-Image.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 250px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      
+        .inner-element {
+          transform: translateZ(40px) scale(0.8);
+        //   width: 70%;
+          margin: auto;
+        }
+    }
+}

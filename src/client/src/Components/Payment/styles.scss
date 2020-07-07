@@ -1,0 +1,126 @@
+:root {
+    --gray-border: rgba(0, 0, 0, 0.15);
+    --gray-dark: rgba(0, 0, 0, 0.6);
+    --gray-medium: rgba(0, 0, 0, 0.55);
+    --body-font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius: 6px;
+    --form-width: 600px;
+    --accent-color: rgb(237, 95, 116);
+}
+
+@keyframes form-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+
+
+.sr-root {
+    animation: 1s form-in;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+    display: flex;
+    justify-content: center;
+    font-family: var(--body-font-family);
+    h1 {
+        font-size: 27px;
+        color: var(--gray-dark);
+        margin-bottom: 0.35rem;
+    }
+    h4 {
+        color: var(--gray-medium);
+        margin-top: 0;
+        font-size: 16px;
+    }
+    .sr-main {
+        width: var(--form-width);
+        display: flex;
+        justify-content: center;
+        .container {
+            border: 1px solid #e8e8e8;
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            max-width: 400px;
+            padding: 32px 28px;
+            flex-grow: 1;
+            .quantity-setter {
+                margin-top: 20px;
+                z-index: 1;
+                > button, > input {
+                    z-index: 1;
+                }
+
+                button {
+                    width: 30px;
+                    height: 32px;
+                    border: 1px solid var(--accent-color);
+                    background: var(--accent-color);
+                    outline: none;
+                    &:hover, &:focus {
+                        filter: contrast(130%);
+                    }
+                    &:focus {
+                        box-shadow: 0 0 0 0.2rem rgba(237, 95, 116,.5);
+                    }
+                    &:disabled {
+                        opacity: 0.5;
+                        cursor: not-allowed;
+                    }
+                }
+                
+                input {
+                    height: 32px;
+                    text-align: center;
+                    border: 1px solid var(--gray-border);
+                }
+
+                input[type=number]::-webkit-inner-spin-button, 
+                input[type=number]::-webkit-outer-spin-button { // Kill spinner on text field
+                    -webkit-appearance: none; 
+                    margin: 0; 
+                }
+            }
+
+            .sr-legal-text {
+                color: var(--gray-dark);
+                font-size: 13px;
+                text-align: center;
+            }
+
+            .submit-payment {
+                border: 1px solid var(--accent-color);
+                background: var(--accent-color);
+                outline: none;
+                &:hover, &:focus {
+                    filter: contrast(130%);
+                }
+                &:focus {
+                    box-shadow: 0 0 0 0.2rem rgba(237, 95, 116,.5);
+                }
+                &:disabled {
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                }
+                z-index: 1;
+                height: 42px;
+                margin-top: 1.5rem;
+            }
+
+            .back-button {
+                align-self: center;
+                margin-top: 20px;
+            }
+
+            .sr-field-error {
+                color: var(--gray-medium);
+                text-align: center;
+            }
+        }
+    }
+}

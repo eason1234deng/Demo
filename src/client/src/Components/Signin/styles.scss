@@ -1,0 +1,53 @@
+.hide-page {
+    display: none !important;
+}
+
+.signin-container {
+    input[type='email'],
+    input[type='password'],
+    input[type='password']:not([password]),
+    input:-webkit-autofill {
+        background: transparent;
+        transition: all 0.2s ease-in-out;
+        font-size: inherit
+    }
+    input[type='email']:not([value]),
+    input[type='email']:not([value = '']),
+    input[type='password']:not([password = '']),
+    input:-webkit-autofill {
+        background-color: rgb(232, 240, 254);
+    }
+    .hover-bg-black,
+    input:-webkit-autofill {
+        &:hover, &:focus {
+            background-color:  black !important;
+            -webkit-text-fill-color: white;
+            -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+        }
+    }
+    input:-webkit-autofill::first-line { // auto fill text font size
+        font-size: 16px;
+    }
+    .zindex {
+        z-index: 1;
+        .padding {
+            padding-right: 9px;
+            padding-left: 9px;
+        }
+    }
+
+    .oauthButton {
+        z-index: 1;
+        display: block;
+        transition: transform .2s;
+        &:hover {
+            cursor: pointer;
+            filter: drop-shadow(2px 4px 6px gray);
+            transform: scale(1.15);
+        }
+        & img {
+            height: 30px;
+            width: 30px;
+        }
+    }
+}

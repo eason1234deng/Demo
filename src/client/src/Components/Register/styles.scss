@@ -1,0 +1,30 @@
+.hide-page {
+    display: none !important;
+}
+.main {
+    z-index: 1;
+    input[type='text'],
+    input[type='password'],
+    input[type='password']:not([password]),
+    input:-webkit-autofill {
+        background: transparent;
+        transition: all 0.2s ease-in-out;
+    }
+    input[type='text']:not([value]),
+    input[type='text']:not([value = '']),
+    input[type='password']:not([password = '']),
+    input:-webkit-autofill {
+        background-color: rgb(232, 240, 254);
+    }
+    .hover-bg-black,
+    input:-webkit-autofill {
+        &:hover, &:focus {
+            background-color:  black !important;
+            -webkit-text-fill-color: white;
+            -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+        }
+    }
+    input:-webkit-autofill::first-line {
+        font-size: 16px;
+    }
+}
