@@ -15,7 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 2) Go to the folder
 3) Run `npm install`
 4) Run `npm run dev`
-5) You must set your own environment variables for keys documented in `/.env.example`  and `/src/client/.env.local` to run the app.
+5) You must set your own environment variables for keys documented in `/.env.example`  and `/src/client/.env.example` to run the app.
 
 You can grab:
   1) Clarifai API key [here](https://www.clarifai.com/)
